@@ -59,7 +59,7 @@ jobs:
         DB_PORT: 5432
         DJANGO_SECRET_KEY: test-secret-key-for-ci
       run: |
-        pytest --cov=bookings --cov-report=xml --cov-report=html
+        pytest
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v5
