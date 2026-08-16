@@ -278,6 +278,7 @@ GitHub Actions runs on every push/PR to `main`/`develop`:
 
 Detailed technical documentation lives in [`DOCUMENTATION/`](DOCUMENTATION/):
 
+- [End-to-End Guide](DOCUMENTATION/END_TO_END_GUIDE.md) — understand & explain the whole project simply
 - [Project Explanation](DOCUMENTATION/PROJECT_EXPLANATION.md) — architecture, design decisions, database schema
 - [API Documentation](DOCUMENTATION/API_DOCUMENTATION.md) — full endpoint reference with examples
 - [Quickstart Guide](DOCUMENTATION/QUICKSTART.md) — environment setup & sample data
