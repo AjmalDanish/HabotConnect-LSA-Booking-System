@@ -193,7 +193,10 @@ class LSA_SearchView(APIView):
             queryset = queryset.filter(hourly_rate__lte=max_hourly_rate)
 
         is_available = serializer.validated_data.get('is_available')
-        if is_available is not None:
+        # NOTE: DRF BooleanField treats QueryDict as HTML form input, so an
+        # absent is_available param becomes False. Only filter when the user
+        # actually provided the parameter, otherwise all LSAs are excluded.
+        if 'is_available' in request.query_params:
             queryset = queryset.filter(is_available=is_available)
 
         specialization = serializer.validated_data.get('specialization')

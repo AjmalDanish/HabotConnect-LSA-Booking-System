@@ -210,7 +210,8 @@ class BookingAPITest(APITestCase):
             first_name='Jane', last_name='Smith', email='jane@example.com',
             phone='+9876543210', gender='F', qualification='bachelor',
             experience_level='intermediate', years_of_experience=3,
-            specialization='ADHD', address='456 Ave', city='LA',
+            specialization='ADHD', skills='ADHD,Autism,Child Psychology',
+            address='456 Ave', city='LA',
             state='CA', postal_code='90001', hourly_rate=Decimal('45.00'),
             is_available=True, verified=True, profile_status='active'
         )
@@ -273,11 +274,25 @@ class BookingAPITest(APITestCase):
         self.assertEqual(response2.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_lsa_search_api_success(self):
-        """Test LSA search endpoint."""
+        """Test LSA search endpoint returns matching LSAs."""
         response = self.client.get('/api/v1/lsas/search/?skills=ADHD&city=LA')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertIn('count', response.data)
         self.assertIn('results', response.data)
+        # Regression: an absent is_available param must not filter out
+        # available LSAs (DRF BooleanField HTML-form quirk used to inject
+        # is_available=False, making search always return empty results).
+        self.assertEqual(response.data['count'], 1)
+        self.assertEqual(len(response.data['results']), 1)
+        self.assertEqual(response.data['results'][0]['first_name'], 'Jane')
+        self.assertEqual(response.data['results'][0]['last_name'], 'Smith')
+
+    def test_lsa_search_api_no_filters_returns_all_active(self):
+        """Test search without filters returns all active verified LSAs."""
+        response = self.client.get('/api/v1/lsas/search/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        # setUp creates exactly one LSA
+        self.assertEqual(response.data['count'], 1)
 
 
 class PaymentServiceTest(TestCase):

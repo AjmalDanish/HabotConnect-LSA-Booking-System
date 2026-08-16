@@ -162,8 +162,8 @@ def create_sample_bookings(parents, lsas):
     ]
 
     for data in bookings_data:
-        # Calculate total amount
-        data['total_amount'] = data['hourly_rate'] * data['total_hours']
+        # Calculate total amount (quantize to 2 decimal places for DecimalField)
+        data['total_amount'] = (data['hourly_rate'] * data['total_hours']).quantize(Decimal('0.01'))
         data['currency'] = 'USD'
 
         # Check if similar booking already exists
