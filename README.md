@@ -8,7 +8,7 @@
 ![Django](https://img.shields.io/badge/Django-4.2.7-green.svg)
 ![DRF](https://img.shields.io/badge/DRF-3.14.0-red.svg)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15+-336791.svg)
-![Tests](https://img.shields.io/badge/tests-18%20passed-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-19%20passed-brightgreen.svg)
 ![CI](https://github.com/AjmalDanish/LSA-Booking-System/actions/workflows/ci.yml/badge.svg)
 ![Coverage](https://img.shields.io/badge/coverage-70%25-yellow.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -26,8 +26,106 @@ Built as a **Python Backend Developer hiring project** with a strong focus on:
 - 🛡️ **Data integrity** — mistake-proofing (Poka-Yoke) validation at model & serializer level
 - ⚡ **Query optimization** — N+1 prevention with `select_related` / `prefetch_related`
 - 🗄️ **Database design** — 3NF normalization, strategic composite indexes, referential integrity
-- 🧪 **Comprehensive testing** — 18 tests covering success, edge, and failure scenarios (70% coverage)
+- 🧪 **Comprehensive testing** — 19 tests covering success, edge, and failure scenarios (70% coverage)
 - 🔄 **CI/CD** — GitHub Actions with PostgreSQL service, automated tests, coverage & flake8 linting
+
+---
+
+## 📸 Screenshots
+
+**API Root — browsable REST API**
+
+![API Root](docs/images/api-root.png)
+
+**LSA Search — filter by skills (`?skills=ADHD`)**
+
+![LSA Search](docs/images/lsa-search.png)
+
+**Bookings List — paginated booking records**
+
+![Bookings List](docs/images/bookings-list.png)
+
+**Booking Detail — full record with parent & LSA details**
+
+![Booking Detail](docs/images/booking-create.png)
+
+> Screenshots are of the live Django REST Framework browsable API at `http://localhost:8000/api/v1/`.
+
+## 🏗️ Architecture
+
+```mermaid
+flowchart TD
+    P[Parent / Client] -->|REST API · JSON| DRF[Django REST Framework]
+    DRF --> V[Views & Serializers<br/>Poka-Yoke validation]
+    V --> S[Booking Logic<br/>Double-booking prevention]
+    V --> PGW[Mock Payment Gateway]
+    PGW --> WH[Webhook Handler<br/>payment.success / failed / refunded]
+    S --> DB[(PostgreSQL 15<br/>3NF schema · composite indexes)]
+    V --> DB
+    DB -->|query results| V
+    V -->|JSON Response| P
+```
+
+**Database schema (simplified ERD):**
+
+```mermaid
+erDiagram
+    PARENT ||--o{ BOOKING : "makes"
+    LSA ||--o{ BOOKING : "receives"
+
+    PARENT {
+        int id PK
+        string email UK "unique"
+        string first_name
+        string last_name
+        string city
+        string state
+    }
+
+    LSA {
+        int id PK
+        string specialization "ADHD / Autism / Dyslexia…"
+        string skills "comma-separated"
+        decimal hourly_rate
+        bool is_available
+        bool verified
+        string profile_status
+    }
+
+    BOOKING {
+        int id PK
+        int parent_id FK
+        int lsa_id FK
+        datetime start_time "indexed"
+        datetime end_time "indexed"
+        string status "pending / confirmed / cancelled…"
+        string payment_status
+        decimal total_amount "auto-calculated"
+    }
+```
+
+**Booking flow — double-booking prevention in action:**
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant A as Booking API
+    participant D as PostgreSQL
+
+    C->>A: POST /api/v1/bookings/ (parent, lsa, time slot)
+    A->>A: Validate end_time > start_time
+    A->>D: Check overlapping active bookings for this LSA
+    alt LSA already booked in this slot
+        D-->>A: conflict found
+        A-->>C: 400 Bad Request — conflict message
+    else Slot is free
+        D-->>A: no conflict
+        A->>D: INSERT booking (status=pending)
+        A-->>C: 201 Created
+    end
+```
+
+---
 
 ## 🏗️ Tech Stack
 
@@ -64,7 +162,8 @@ LSA-Booking-System/
 │   ├── webhooks.py          # Payment webhook handlers
 │   ├── admin.py             # Admin interface
 │   ├── migrations/          # Database migrations
-│   └── tests.py             # 18 tests (model, API, integration, payment)
+│   ├── tests.py             # 19 tests (model, API, integration, payment)
+├── docs/images/             # Screenshots for README
 ├── DOCUMENTATION/           # Full technical documentation
 ├── .github/workflows/       # CI/CD pipeline (test + lint)
 ├── requirements.txt         # Dependencies
