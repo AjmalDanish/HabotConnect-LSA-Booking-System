@@ -11,7 +11,7 @@
 ```bash
 # Clone the repository
 git clone [your-repo-url]
-cd habot_booking
+cd lsa_booking
 
 # (Optional) Run setup script
 chmod +x setup.sh
@@ -26,13 +26,13 @@ pip install -r requirements.txt
 ### Step 2: Configure Database
 ```bash
 # Create PostgreSQL database
-createdb habot_booking
+createdb lsa_booking
 
 # Copy environment file
 cp .env.example .env
 
 # Edit .env with your database credentials
-# DB_NAME=habot_booking
+# DB_NAME=lsa_booking
 # DB_USER=postgres
 # DB_PASSWORD=your_password
 # DB_HOST=localhost
@@ -141,7 +141,7 @@ curl -X POST http://localhost:8000/api/v1/payments/webhook/test/ \
 pg_isready
 
 # Test connection
-psql -U postgres -d habot_booking
+psql -U postgres -d lsa_booking
 
 # Check database exists
 psql -U postgres -l
@@ -154,7 +154,7 @@ python manage.py migrate --zero
 python manage.py migrate
 
 # Create new database
-dropdb habot_booking && createdb habot_booking
+dropdb lsa_booking && createdb lsa_booking
 python manage.py migrate
 ```
 

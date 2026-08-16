@@ -1,4 +1,4 @@
-# HabotConnect LSA Booking System - Technical Presentation
+# LSA Booking System - Technical Presentation
 
 ## Slide 1: Title & Overview
 # LSA Booking System

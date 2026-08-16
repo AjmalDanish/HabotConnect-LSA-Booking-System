@@ -1,5 +1,5 @@
 """
-URL configuration for habot_booking project.
+URL configuration for lsa_booking project.
 """
 from django.contrib import admin
 from django.urls import path, include

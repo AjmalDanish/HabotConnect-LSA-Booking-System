@@ -1,8 +1,8 @@
-# HabotConnect LSA Booking System
+# LSA Booking System
 
 ## 🚀 Project Overview
 
-This is a production-ready backend prototype for HabotConnect's LSA (Learning Support Assistant) Service Booking system. The platform connects parents with Learning Support Assistants for children with learning difficulties, built with Django REST Framework and optimized for performance and data integrity.
+This is a production-ready backend prototype for an LSA (Learning Support Assistant) Service Booking system. The platform connects parents with Learning Support Assistants for children with learning difficulties, built with Django REST Framework and optimized for performance and data integrity.
 
 **Assignment**: Python Backend Developer - Hiring Project
 **Submission Date**: August 13th, 2026
@@ -47,8 +47,8 @@ The system employs several techniques to prevent the N+1 query problem:
 ## 📁 Project Structure
 
 ```
-habot_booking/
-├── habot_booking/          # Main project directory
+lsa_booking/
+├── lsa_booking/          # Main project directory
 │   ├── settings.py        # Django settings
 │   ├── urls.py           # Main URL configuration
 │   └── wsgi.py           # WSGI configuration
@@ -228,7 +228,7 @@ Handles payment success/failure events and automatically updates booking status.
 1. **Clone the repository**
    ```bash
    git clone [repository-url]
-   cd habot_booking
+   cd lsa_booking
    ```
 
 2. **Create virtual environment**
@@ -245,7 +245,7 @@ Handles payment success/failure events and automatically updates booking status.
 4. **Configure environment variables**
    ```bash
    # Create .env file
-   DB_NAME=habot_booking
+   DB_NAME=lsa_booking
    DB_USER=postgres
    DB_PASSWORD=your_password
    DB_HOST=localhost
@@ -454,12 +454,12 @@ The system implements mistake-proofing (Poka-Yoke) principles:
 
 ## 📞 Contact & Support
 
-**Project Submission**: HabotConnect Python Backend Developer Assignment
+**Project**: LSA Booking System - Python Backend Developer Project
 **Author**: Ajmal Danish
 **Email**: ajmaldanish0786@gmail.com
 **GitHub**: https://github.com/AjmalDanish
 
 ---
 
-**Built with Django REST Framework for HabotConnect**
+**Built with Django REST Framework**
 *Connecting families with specialized learning support*

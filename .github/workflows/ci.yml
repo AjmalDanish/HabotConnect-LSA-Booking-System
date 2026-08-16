@@ -14,7 +14,7 @@ jobs:
       postgres:
         image: postgres:15
         env:
-          POSTGRES_DB: habot_booking_test
+          POSTGRES_DB: lsa_booking_test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
         ports:
@@ -42,7 +42,7 @@ jobs:
 
     - name: Run migrations
       env:
-        DB_NAME: habot_booking_test
+        DB_NAME: lsa_booking_test
         DB_USER: postgres
         DB_PASSWORD: postgres
         DB_HOST: localhost
@@ -52,7 +52,7 @@ jobs:
 
     - name: Run tests
       env:
-        DB_NAME: habot_booking_test
+        DB_NAME: lsa_booking_test
         DB_USER: postgres
         DB_PASSWORD: postgres
         DB_HOST: localhost
@@ -94,4 +94,4 @@ jobs:
 
     - name: Run Flake8
       run: |
-        flake8 bookings/ habot_booking/ --max-line-length=120 --exclude=migrations
+        flake8 bookings/ lsa_booking/ --max-line-length=120 --exclude=migrations

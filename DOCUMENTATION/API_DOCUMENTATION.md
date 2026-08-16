@@ -20,7 +20,7 @@ Check system health status.
 {
   "status": "healthy",
   "timestamp": "2024-08-11T10:00:00Z",
-  "service": "Habot LSA Booking API",
+  "service": "LSA Booking API",
   "version": "1.0.0"
 }
 ```

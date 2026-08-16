@@ -10,7 +10,7 @@ from decimal import Decimal
 import random
 
 # Setup Django environment
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'habot_booking.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'lsa_booking.settings')
 django.setup()
 
 from bookings.models import Parent, LSA_Profile, Booking_Request
@@ -183,7 +183,7 @@ def create_sample_bookings(parents, lsas):
 
 def main():
     """Main function to create all sample data."""
-    print("🌱 Creating sample data for HabotConnect LSA Booking System\n")
+    print("🌱 Creating sample data for LSA Booking System\n")
 
     try:
         # Create parents

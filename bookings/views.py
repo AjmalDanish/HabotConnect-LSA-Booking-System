@@ -26,7 +26,7 @@ class HealthCheckView(APIView):
         return Response({
             'status': 'healthy',
             'timestamp': timezone.now().isoformat(),
-            'service': 'Habot LSA Booking API',
+            'service': 'LSA Booking API',
             'version': '1.0.0'
         })
 

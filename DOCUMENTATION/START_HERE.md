@@ -2,21 +2,21 @@
 
 ## 📚 What You Have Now
 
-You now have a **complete, production-ready backend system** for HabotConnect! Here's everything organized for you:
+You now have a **complete, production-ready backend system** for LSA service booking! Here's everything organized for you:
 
 ---
 
 ## 🗂️ **File Organization** (Properly Structured)
 
 ```
-habot_booking/
+lsa_booking/
 ├── 📄 manage.py                      # Django command tool
 ├── 📋 requirements.txt               # Dependencies
 ├── 📋 .env.example                  # Configuration template
 ├── 🚀 setup.sh                      # One-command setup
 ├── 🌱 create_sample_data.py         # Test data generator
 │
-├── 📁 habot_booking/                # Django project
+├── 📁 lsa_booking/                # Django project
 │   ├── settings.py                  # Configuration
 │   ├── urls.py                      # Main routing
 │   └── wsgi.py                      # Production interface
@@ -92,7 +92,7 @@ habot_booking/
 ### **Step 1: Install & Setup**
 ```bash
 # Clone and navigate to project
-cd habot_booking
+cd lsa_booking
 
 # Install dependencies
 pip install -r requirements.txt
@@ -157,7 +157,7 @@ http://localhost:8000/admin/
 ### **🏗️ System Core**
 ```
 manage.py              → Django command tool
-habot_booking/settings.py → Configuration
+lsa_booking/settings.py → Configuration
 bookings/models.py     → Database structure
 bookings/views.py      → API logic
 bookings/serializers.py → Data validation
@@ -319,7 +319,7 @@ Health Check: http://localhost:8000/api/v1/health/
 
 ### **Key Files to Edit**
 ```
-Configuration: habot_booking/settings.py
+Configuration: lsa_booking/settings.py
 Database: bookings/models.py
 API Logic: bookings/views.py
 Validation: bookings/serizers.py
@@ -361,7 +361,7 @@ You now have:
 
 **Remember:** This is a production-ready system that demonstrates professional Python backend development. Every technology choice was made for specific reasons, all explained in the documentation. 
 
-**Good luck with your HabotConnect interview!** 🚀
+**Happy coding!** 🚀
 
 ---
 

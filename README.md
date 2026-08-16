@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎓 HabotConnect LSA Booking System
+# 🎓 LSA Booking System
 
 **Production-ready backend for connecting parents with Learning Support Assistants (LSAs) for children with learning difficulties**
 
@@ -9,7 +9,7 @@
 ![DRF](https://img.shields.io/badge/DRF-3.14.0-red.svg)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15+-336791.svg)
 ![Tests](https://img.shields.io/badge/tests-18%20passed-brightgreen.svg)
-![CI](https://github.com/AjmalDanish/HabotConnect-LSA-Booking-System/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/AjmalDanish/LSA-Booking-System/actions/workflows/ci.yml/badge.svg)
 ![Coverage](https://img.shields.io/badge/coverage-70%25-yellow.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -53,8 +53,8 @@ Built as a **Python Backend Developer hiring project** with a strong focus on:
 ## 📁 Project Structure
 
 ```
-HabotConnect/
-├── habot_booking/           # Django project (settings, urls, wsgi)
+LSA-Booking-System/
+├── lsa_booking/            # Django project (settings, urls, wsgi)
 ├── bookings/                # Main application
 │   ├── models.py            # Parent, LSA_Profile, Booking_Request (indexed, normalized)
 │   ├── serializers.py       # DRF serializers + Poka-Yoke validation
@@ -82,8 +82,8 @@ HabotConnect/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/AjmalDanish/HabotConnect-LSA-Booking-System.git
-cd HabotConnect-LSA-Booking-System
+git clone https://github.com/AjmalDanish/LSA-Booking-System.git
+cd LSA-Booking-System
 
 # 2. Create and activate virtual environment
 python -m venv venv
@@ -173,7 +173,7 @@ Coverage areas: ✅ model validation ✅ double-booking prevention ✅ amount au
 GitHub Actions runs on every push/PR to `main`/`develop`:
 
 1. **Test job** — Python 3.11 + PostgreSQL 15 service → migrations → pytest with coverage (uploaded to Codecov)
-2. **Lint job** — flake8 (max-line-length=120) across `bookings/` and `habot_booking/`
+2. **Lint job** — flake8 (max-line-length=120) across `bookings/` and `lsa_booking/`
 
 ## 📚 Documentation
 

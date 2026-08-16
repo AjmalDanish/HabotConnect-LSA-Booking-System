@@ -1,5 +1,5 @@
 """
-Django settings for habot_booking project.
+Django settings for lsa_booking project.
 """
 
 from pathlib import Path
@@ -48,7 +48,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'habot_booking.urls'
+ROOT_URLCONF = 'lsa_booking.urls'
 
 TEMPLATES = [
     {
@@ -66,7 +66,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'habot_booking.wsgi.application'
+WSGI_APPLICATION = 'lsa_booking.wsgi.application'
 
 
 # Database
@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'habot_booking.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DB_NAME', default='habot_booking'),
+        'NAME': env('DB_NAME', default='lsa_booking'),
         'USER': env('DB_USER', default='postgres'),
         'PASSWORD': env('DB_PASSWORD', default='postgres'),
         'HOST': env('DB_HOST', default='localhost'),

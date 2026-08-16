@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# HabotConnect LSA Booking System - Setup Script
+# LSA Booking System - Setup Script
 # This script helps set up the development environment
 
-echo "🚀 Setting up HabotConnect LSA Booking System..."
+echo "🚀 Setting up LSA Booking System..."
 
 # Check Python version
 echo "📋 Checking Python version..."
@@ -46,7 +46,7 @@ if [ ! -f .env ]; then
     echo "📝 Creating .env file..."
     cat > .env << EOL
 # Database Configuration
-DB_NAME=habot_booking
+DB_NAME=lsa_booking
 DB_USER=postgres
 DB_PASSWORD=postgres
 DB_HOST=localhost

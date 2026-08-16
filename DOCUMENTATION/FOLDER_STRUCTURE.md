@@ -3,7 +3,7 @@
 ## Visual Directory Tree
 
 ```
-habot_booking/                              # 🏠 ROOT PROJECT DIRECTORY
+lsa_booking/                              # 🏠 ROOT PROJECT DIRECTORY
 │
 ├── 📄 manage.py                           # Django management script
 │   └── 🎯 Purpose: Command-line tool for Django operations
@@ -55,7 +55,7 @@ habot_booking/                              # 🏠 ROOT PROJECT DIRECTORY
 ├── 📖 FOLDER_STRUCTURE.md                # This file
 │   └── 🎯 Purpose: Folder structure and organization guide
 │
-├── 📁 habot_booking/                     # ⚙️ MAIN DJANGO PROJECT
+├── 📁 lsa_booking/                     # ⚙️ MAIN DJANGO PROJECT
 │   ├── 📄 __init__.py                    # Package marker
 │   ├── 📄 settings.py                    # Django configuration
 │   │   └── 🎯 Purpose: Database, apps, middleware, security
@@ -141,7 +141,7 @@ habot_booking/                              # 🏠 ROOT PROJECT DIRECTORY
 
 ### 2️⃣ **Django Framework Files** 🎨
 ```
-├── habot_booking/
+├── lsa_booking/
 │   ├── settings.py       # Main configuration
 │   ├── urls.py          # URL routing
 │   ├── wsgi.py          # Production interface
@@ -189,7 +189,7 @@ habot_booking/                              # 🏠 ROOT PROJECT DIRECTORY
 ### 🔴 **CRITICAL** (Must have)
 ```
 ✅ manage.py              # Django functionality
-✅ habot_booking/settings.py  # Configuration
+✅ lsa_booking/settings.py  # Configuration
 ✅ bookings/models.py     # Database structure
 ✅ bookings/views.py      # API functionality
 ✅ bookings/serializers.py  # Data handling
@@ -225,7 +225,7 @@ habot_booking/                              # 🏠 ROOT PROJECT DIRECTORY
 ```
 1. User sends request
    ↓
-2. habot_booking/urls.py (Main routing)
+2. lsa_booking/urls.py (Main routing)
    ↓
 3. bookings/urls.py (Application routing)
    ↓
@@ -267,7 +267,7 @@ habot_booking/                              # 🏠 ROOT PROJECT DIRECTORY
 | Add new API endpoint | bookings/views.py + bookings/urls.py |
 | Validate input data | bookings/serializers.py |
 | Test new feature | bookings/tests.py |
-| Configure database | habot_booking/settings.py |
+| Configure database | lsa_booking/settings.py |
 | Add dependency | requirements.txt |
 | Document API | API_DOCUMENTATION.md |
 | Understand system | PROJECT_EXPLANATION.md |

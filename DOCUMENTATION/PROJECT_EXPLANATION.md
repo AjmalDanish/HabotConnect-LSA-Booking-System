@@ -14,7 +14,7 @@
 ## 🎯 Project Overview
 
 ### What is this Project?
-This is a **backend system** for a company called **HabotConnect** that connects parents with **Learning Support Assistants (LSAs)** - special tutors who help children with learning difficulties like ADHD, Autism, Dyslexia, etc.
+This is a **backend system** that connects parents with **Learning Support Assistants (LSAs)** - special tutors who help children with learning difficulties like ADHD, Autism, Dyslexia, etc.
 
 ### Real-World Example
 Think of it like **Uber for tutoring**:
@@ -1158,4 +1158,4 @@ This system can be extended to:
 6. ✅ How the system prevents errors automatically
 7. ✅ How to extend and maintain the code
 
-**This project demonstrates production-level Python backend development** and meets all requirements for the HabotConnect assignment! 🎉
+**This project demonstrates production-level Python backend development** and meets all requirements for the assignment! 🎉
